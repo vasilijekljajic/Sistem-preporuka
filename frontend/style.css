@@ -1,0 +1,412 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+header {
+  background-color: #2c7be5;
+  color: white;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header h1 {
+  font-size: 20px;
+}
+
+header p {
+  font-size: 12px;
+  opacity: 0.85;
+  margin-top: 2px;
+}
+
+nav {
+  display: flex;
+  gap: 8px;
+}
+
+nav button {
+  background: white;
+  color: #2c7be5;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+nav button.active {
+  background: #1a5cbf;
+  color: white;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+.search-box {
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+
+.search-box input:focus {
+  border-color: #2c7be5;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  max-height: 240px;
+  overflow-y: auto;
+  z-index: 10;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.dropdown.open {
+  display: block;
+}
+
+.dropdown-item {
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dropdown-item:hover {
+  background: #f0f0f0;
+}
+
+.dropdown-item span.pid {
+  color: #888;
+  font-size: 12px;
+}
+
+h2 {
+  font-size: 14px;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  margin-top: 20px;
+}
+
+.cart-area {
+  background: white;
+  border: 1px dashed #bbb;
+  border-radius: 4px;
+  padding: 12px;
+  min-height: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.cart-item {
+  background: #e8f0fe;
+  border: 1px solid #aac4f5;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cart-item button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #888;
+  font-size: 16px;
+  line-height: 1;
+  padding: 0;
+}
+
+.cart-item button:hover {
+  color: red;
+}
+
+.cart-empty {
+  color: #999;
+  font-size: 13px;
+}
+
+.options {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.opt-group label {
+  display: block;
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.opt-group input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 7px 10px;
+  font-size: 14px;
+  width: 110px;
+  outline: none;
+}
+
+.opt-group input:focus {
+  border-color: #2c7be5;
+}
+
+.btn-primary {
+  background-color: #2c7be5;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.btn-primary:hover {
+  background-color: #1a5cbf;
+}
+
+.btn-primary:disabled {
+  background-color: #aac4f5;
+  cursor: not-allowed;
+}
+
+.error-msg {
+  background: #fff3f3;
+  border: 1px solid #f5c6c6;
+  border-radius: 4px;
+  padding: 10px 14px;
+  color: #c0392b;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.rec-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+.rec-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 16px;
+}
+
+.rec-card:hover {
+  border-color: #2c7be5;
+}
+
+.rec-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.rec-rank {
+  font-size: 12px;
+  color: #999;
+  font-weight: bold;
+}
+
+.rec-source {
+  font-size: 11px;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+.source-fpgrowth { background: #dbeafe; color: #2c7be5; }
+.source-als       { background: #dcfce7; color: #16a34a; }
+.source-hybrid    { background: #ede9fe; color: #7c3aed; }
+
+.rec-name {
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.rec-explanation {
+  font-size: 13px;
+  color: #666;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.rec-metrics {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.rec-metrics span {
+  background: #f0f0f0;
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+
+.score-bar {
+  height: 4px;
+  background: #e0e0e0;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.score-fill {
+  height: 100%;
+  background: #2c7be5;
+  border-radius: 2px;
+}
+
+.btn-add-cart {
+  background: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  color: #444;
+}
+
+.btn-add-cart:hover {
+  border-color: #2c7be5;
+  color: #2c7be5;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  color: #999;
+}
+
+.empty-state p {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.graph-controls {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.graph-legend {
+  display: flex;
+  gap: 20px;
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 14px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+#graph-container {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+#graph-svg {
+  width: 100%;
+  height: 800px;
+  display: block;
+}
+
+.tooltip {
+  position: fixed;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 13px;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 200;
+  max-width: 220px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: opacity 0.1s;
+}
+
+.tooltip.visible {
+  opacity: 1;
+}
+
+.tooltip b {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.tooltip p {
+  color: #555;
+  line-height: 1.6;
+  font-size: 12px;
+}
+
