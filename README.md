@@ -17,17 +17,26 @@ Ovo je projekat za sistem preporuka koji koristi:
 ## Potrebno
 
 - Python 3.9+ (preporučeno)
-- `data/` direktorijum sa:
-  - `orders.csv`
-  - `products.csv`
-  - `order_products__prior.csv`
-  - `order_products__train.csv`
-  - `data/FPgrowth/rules.csv`
-  - `data/ALS/model.pkl`
-  - `data/ALS/matrix.pkl`
-  - `data/ALS/mappings.pkl`
 
-> Ako dataset i modeli nisu tu, prvo treba ubaciti odgovarajuće CSV fajlove i pokrenuti `FPgrowth.py` i `ALS.py` da bi se generisao model.
+Zbog veličine Instacart dataset-a i generisanih modela (više od 2 GB), podaci i modeli nisu uključeni u GitHub repozitorijum.
+
+Potrebno je preuzeti sadržaj sa Google Drive linka i raspakovati ga u `data` direktorijum projekta:
+
+**Google Drive:**  
+<https://drive.google.com/drive/folders/1VRfmUCrOrjL7DTQ9QHmzBmmAos7BJUX2?usp=drive_link>
+
+Nakon raspakivanja potrebno je da postoje sljedeći fajlovi:
+
+- `orders.csv`
+- `products.csv`
+- `order_products__prior.csv`
+- `order_products__train.csv`
+- `data/FPgrowth/rules.csv`
+- `data/ALS/model.pkl`
+- `data/ALS/matrix.pkl`
+- `data/ALS/mappings.pkl`
+
+> Ako podaci i modeli nisu dostupni, mogu se ponovo generisati pokretanjem `FPgrowth.py` i `ALS.py`.
 
 ## Instalacija
 
